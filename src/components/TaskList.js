@@ -1,17 +1,22 @@
+import { useEffect } from "react";
 import { Button, Form, ListGroup } from "react-bootstrap";
 import useToDos from "../hooks/useToDo";
 
 const TaskList = () => {
-  const { toDos } = useToDos();
+  const { toDos, loadTasks } = useToDos();
+
+  useEffect(() => {
+    loadTasks();
+  }, [loadTasks]);
 
   return (
     <>
       <ListGroup as="ol" numbered>
-        {toDos.map((todo) => (
-          <ListGroup.Item as="li" key={todo.id}>
+        {toDos.map((task) => (
+          <ListGroup.Item as="li" key={task.id}>
             <Form.Check
               inline
-              label={todo.task}
+              label={task.task}
               type="checkbox"
               id="inline-checkbox"
             />

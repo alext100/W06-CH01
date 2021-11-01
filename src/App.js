@@ -1,15 +1,8 @@
-import { useEffect } from "react";
-import useToDos from "./hooks/useToDo";
 import "./App.css";
-import MainPage from "./components/MainPage";
+import MainPage from "./components/FormPage";
 import TaskList from "./components/TaskList";
 
 function App() {
-  const { loadTasks } = useToDos();
-
-  useEffect(() => {
-    loadTasks();
-  }, [loadTasks]);
   return (
     <>
       <MainPage />
