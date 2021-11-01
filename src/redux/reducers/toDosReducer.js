@@ -1,6 +1,6 @@
 import actionTypes from "../actions/actionTypes";
 
-const toDosReducer = (toDos, action) => {
+const toDosReducer = (toDos = [], action) => {
   let newToDo;
 
   switch (action.type) {
@@ -13,15 +13,16 @@ const toDosReducer = (toDos, action) => {
       break;
 
     case actionTypes.createToDo:
-      newToDo = [...toDos, action.toDo];
+      newToDo = [...toDos, action.toDos];
       break;
 
     case actionTypes.updateToDo:
-      newToDo = [...toDos, action.toDo];
+      newToDo = [...toDos, action.toDos];
       break;
 
     default:
-      throw new Error("Error en el reducer");
+      //  throw new Error("Error en el reducer");
+      newToDo = [...toDos];
   }
 
   return newToDo;
