@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
-import useToDos from "../hooks/useToDo";
 
 const MainPage = ({ toDo }) => {
   const createTask = () => {};
