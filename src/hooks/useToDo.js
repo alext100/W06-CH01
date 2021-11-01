@@ -4,7 +4,7 @@ import { getToDosThunk } from "../redux/thunks/thunks";
 
 const useToDos = () => {
   const dispatch = useDispatch();
-  const { toDos } = useSelector(({ toDos }) => toDos);
+  const toDos = useSelector(({ toDos }) => toDos);
   const loadTasks = useCallback(() => {
     dispatch(getToDosThunk());
   }, [dispatch]);
