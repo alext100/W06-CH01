@@ -1,6 +1,7 @@
 import { createToDoAction, loadToDosAction } from "../actions/actionCreators";
 
-const url = process.env.REACT_APP_API_URL;
+//const url = process.env.REACT_APP_API_URL;
+const url = "https://pokemon-api-aleksandr.herokuapp.com/pokemon/";
 
 export const getToDosThunk = () => async (dispatch) => {
   const response = await fetch(url, {

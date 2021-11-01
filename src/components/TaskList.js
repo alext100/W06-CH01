@@ -13,7 +13,11 @@ const TaskList = () => {
     <>
       <ListGroup as="ol" numbered>
         {toDos.map((task) => (
-          <ListGroup.Item as="li" key={task.id}>
+          <ListGroup.Item
+            as="li"
+            key={task.id}
+            className="row justify-content-start col-md-4"
+          >
             <Form.Check
               inline
               label={task.task}
