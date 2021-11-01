@@ -3,12 +3,6 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import useToDos from "../hooks/useToDo";
 
 const MainPage = ({ toDo }) => {
-  const { loadTasks } = useToDos();
-
-  useEffect(() => {
-    loadTasks();
-  }, [loadTasks]);
-
   const createTask = () => {};
 
   return (
