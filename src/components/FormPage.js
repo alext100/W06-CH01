@@ -1,21 +1,15 @@
 import { useState } from "react";
-import { FloatingLabel, Form } from "react-bootstrap";
+import { FloatingLabel, Form, Button } from "react-bootstrap";
 import useToDos from "../hooks/useToDo";
 
-const MainPage = ({ toDo }) => {
+const MainPage = () => {
   const { createTask } = useToDos();
   const initialTask = {
     task: "",
+    isDone: false,
   };
 
   const [task, setTask] = useState(initialTask);
-
-  const changeData = (event) => {
-    setTask({
-      ...task,
-      [event.target.id]: event.target.value,
-    });
-  };
 
   const submitForm = (event) => {
     event.preventDefault();
@@ -23,6 +17,12 @@ const MainPage = ({ toDo }) => {
       createTask(task);
       setTask(initialTask);
     }
+  };
+  const changeData = (event) => {
+    setTask({
+      ...task,
+      [event.target.id]: event.target.value,
+    });
   };
 
   return (
@@ -44,6 +44,9 @@ const MainPage = ({ toDo }) => {
             />
           </FloatingLabel>
         </Form.Group>
+        <Button variant="primary" size="sm" type="submit" className="m-1">
+          Create
+        </Button>
       </Form>
     </>
   );

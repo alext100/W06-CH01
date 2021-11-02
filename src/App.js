@@ -1,11 +1,11 @@
 import "./App.css";
-import MainPage from "./components/FormPage";
+import FormPage from "./components/FormPage";
 import TaskList from "./components/TaskList";
 
 function App() {
   return (
     <>
-      <MainPage />
+      <FormPage />
       <TaskList />
     </>
   );
