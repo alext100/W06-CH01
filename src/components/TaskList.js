@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { Button, Form, ListGroup } from "react-bootstrap";
+import { Button, ButtonGroup, Form, ListGroup } from "react-bootstrap";
 import useToDos from "../hooks/useToDo";
 
 const TaskList = () => {
-  const { toDos, loadTasks } = useToDos();
+  const { loadTasks, toDos } = useToDos();
+  console.log("toDos: ", toDos);
 
   useEffect(() => {
     loadTasks();
@@ -24,9 +25,14 @@ const TaskList = () => {
               type="checkbox"
               id="inline-checkbox"
             />
-            <Button variant="primary" size="sm">
-              Edit
-            </Button>
+            <ButtonGroup size="sm" className="gap-md-5">
+              <Button variant="primary" size="sm">
+                Edit
+              </Button>
+              <Button variant="primary" size="sm">
+                Delete
+              </Button>
+            </ButtonGroup>
           </ListGroup.Item>
         ))}
       </ListGroup>

@@ -44,7 +44,7 @@ const MainPage = () => {
             />
           </FloatingLabel>
         </Form.Group>
-        <Button variant="primary" size="sm" type="submit">
+        <Button variant="primary" size="sm" type="submit" className="m-1">
           Create
         </Button>
       </Form>
