@@ -3,7 +3,7 @@ import { Button, ButtonGroup, Form, ListGroup } from "react-bootstrap";
 import useToDos from "../hooks/useToDo";
 
 const TaskList = () => {
-  const { loadTasks, toDos } = useToDos();
+  const { loadTasks, toDos, deleteTask } = useToDos();
   console.log("toDos: ", toDos);
 
   useEffect(() => {
@@ -29,7 +29,11 @@ const TaskList = () => {
               <Button variant="primary" size="sm">
                 Edit
               </Button>
-              <Button variant="primary" size="sm">
+              <Button
+                variant="primary"
+                size="sm"
+                onClick={() => deleteTask(task.id)}
+              >
                 Delete
               </Button>
             </ButtonGroup>

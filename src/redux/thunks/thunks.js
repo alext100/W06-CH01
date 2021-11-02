@@ -1,4 +1,9 @@
-import { createToDoAction, loadToDosAction } from "../actions/actionCreators";
+import axios from "axios";
+import {
+  createToDoAction,
+  deleteToDoAction,
+  loadToDosAction,
+} from "../actions/actionCreators";
 
 //const url = process.env.REACT_APP_API_URL;
 const url = "https://pokemon-api-aleksandr.herokuapp.com/pokemon/";
@@ -25,4 +30,11 @@ export const createToDoThunk = (toDo) => async (dispatch) => {
   });
   const toDoToCreate = await response.json();
   dispatch(createToDoAction(toDoToCreate));
+};
+
+export const deleteToDoThunk = (id) => async (dispatch) => {
+  const { status } = await axios.delete(`${url}/${id}`);
+  if (status === 200) {
+    dispatch(deleteToDoAction(id));
+  }
 };
