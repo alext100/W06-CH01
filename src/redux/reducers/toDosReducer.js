@@ -17,7 +17,9 @@ const toDosReducer = (toDos = [], action) => {
       break;
 
     case actionTypes.updateToDo:
-      newToDo = [...toDos, action.toDos];
+      newToDo = toDos.map((toDo) =>
+        toDo.id === action.toDo.id ? { ...toDo, ...action.toDo } : toDo
+      );
       break;
 
     default:
