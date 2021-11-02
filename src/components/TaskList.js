@@ -3,12 +3,13 @@ import { Button, ButtonGroup, Form, ListGroup } from "react-bootstrap";
 import useToDos from "../hooks/useToDo";
 
 const TaskList = () => {
-  const { loadTasks, toDos, deleteTask } = useToDos();
-  console.log("toDos: ", toDos);
+  const { loadTasks, toDos, deleteTask, updateTask } = useToDos();
 
   useEffect(() => {
     loadTasks();
   }, [loadTasks]);
+
+  const onUpdate = () => {};
 
   return (
     <>
@@ -26,7 +27,7 @@ const TaskList = () => {
               id="inline-checkbox"
             />
             <ButtonGroup size="sm" className="gap-md-5">
-              <Button variant="primary" size="sm">
+              <Button variant="primary" size="sm" onClick={onUpdate}>
                 Edit
               </Button>
               <Button
