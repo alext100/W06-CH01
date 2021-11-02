@@ -5,8 +5,10 @@ import TaskList from "./components/TaskList";
 function App() {
   return (
     <>
-      <FormPage />
-      <TaskList />
+      <div className="container">
+        <FormPage className="col-md-6 offset-md-3" />
+        <TaskList className="col-md-6 offset-md-3" />
+      </div>
     </>
   );
 }

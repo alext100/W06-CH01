@@ -3,6 +3,7 @@ import {
   createToDoAction,
   deleteToDoAction,
   loadToDosAction,
+  updateToDoAction,
 } from "../actions/actionCreators";
 
 //const url = process.env.REACT_APP_API_URL;
@@ -37,4 +38,9 @@ export const deleteToDoThunk = (id) => async (dispatch) => {
   if (status === 200) {
     dispatch(deleteToDoAction(id));
   }
+};
+
+export const updateToDoThunk = (toDo, id) => async (dispatch) => {
+  const { toDo: modifiedToDo } = await axios.put(`${url}/${id}`, toDo);
+  dispatch(updateToDoAction(modifiedToDo, id));
 };

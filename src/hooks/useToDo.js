@@ -4,6 +4,7 @@ import {
   createToDoThunk,
   deleteToDoThunk,
   getToDosThunk,
+  updateToDoThunk,
 } from "../redux/thunks/thunks";
 
 const useToDos = () => {
@@ -22,7 +23,11 @@ const useToDos = () => {
     dispatch(deleteToDoThunk(id));
   };
 
-  return { toDos, loadTasks, createTask, deleteTask };
+  const updateTask = (task, id) => {
+    dispatch(updateToDoThunk(task, id));
+  };
+
+  return { toDos, loadTasks, createTask, deleteTask, updateTask };
 };
 
 export default useToDos;
