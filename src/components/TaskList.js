@@ -1,17 +1,17 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect } from "react";
 import { Button, ButtonGroup, Form, ListGroup } from "react-bootstrap";
 import useToDos from "../hooks/useToDo";
 
 const TaskList = () => {
   const {
-    currentToDo,
     toDos,
     loadTasks,
     deleteTask,
-    updateTask,
     loadCurrentToDo,
+    /*     currentToDo,
+    updateTask,
     resetCurrentToDo,
-    createTask,
+    createTask, */
   } = useToDos();
 
   useEffect(() => {
