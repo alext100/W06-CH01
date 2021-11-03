@@ -1,6 +1,10 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  loadCurrentToDoAction,
+  resetCurrentCurrentAction,
+} from "../redux/actions/actionCreators";
+import {
   createToDoThunk,
   deleteToDoThunk,
   getToDosThunk,
@@ -9,7 +13,10 @@ import {
 
 const useToDos = () => {
   const dispatch = useDispatch();
-  const toDos = useSelector(({ toDos }) => toDos);
+  const { toDos, currentToDo } = useSelector(({ toDos, currentToDo }) => ({
+    toDos,
+    currentToDo,
+  }));
 
   const loadTasks = useCallback(() => {
     dispatch(getToDosThunk());
@@ -23,11 +30,28 @@ const useToDos = () => {
     dispatch(deleteToDoThunk(id));
   };
 
-  const updateTask = (task, id) => {
-    dispatch(updateToDoThunk(task, id));
+  const updateTask = (task) => {
+    dispatch(updateToDoThunk(task));
   };
 
-  return { toDos, loadTasks, createTask, deleteTask, updateTask };
+  const loadCurrentToDo = (toDo) => {
+    dispatch(loadCurrentToDoAction(toDo));
+  };
+
+  const resetCurrentToDo = () => {
+    dispatch(resetCurrentCurrentAction());
+  };
+
+  return {
+    toDos,
+    currentToDo,
+    loadTasks,
+    createTask,
+    deleteTask,
+    updateTask,
+    loadCurrentToDo,
+    resetCurrentToDo,
+  };
 };
 
 export default useToDos;

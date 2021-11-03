@@ -40,7 +40,20 @@ export const deleteToDoThunk = (id) => async (dispatch) => {
   }
 };
 
-export const updateToDoThunk = (toDo, id) => async (dispatch) => {
+/* export const updateToDoThunk = (toDo, id) => async (dispatch) => {
   const { toDo: modifiedToDo } = await axios.put(`${url}/${id}`, toDo);
   dispatch(updateToDoAction(modifiedToDo, id));
+}; */
+
+export const updateToDoThunk = (toDo) => async (dispatch) => {
+  const response = await fetch(`${url}/${toDo.id}`, {
+    method: "PUT",
+    body: JSON.stringify(toDo),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const updatedTask = await response.json();
+  dispatch(updateToDoAction(updatedTask));
 };

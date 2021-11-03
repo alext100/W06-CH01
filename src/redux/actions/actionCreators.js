@@ -19,3 +19,12 @@ export const updateToDoAction = (toDo) => ({
   type: actionTypes.updateToDo,
   toDo,
 });
+
+export const loadCurrentToDoAction = (toDo) => ({
+  type: actionTypes.loadCurrentToDo,
+  toDo,
+});
+
+export const resetCurrentCurrentAction = () => ({
+  type: actionTypes.resetCurrentToDo,
+});
